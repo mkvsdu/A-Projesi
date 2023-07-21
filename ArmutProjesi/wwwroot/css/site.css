@@ -1,0 +1,73 @@
+
+
+
+
+.bg-image img{
+    background-color: #348E38;
+    width:100%auto;
+
+    height:50vh;
+    background-attachment:fixed;
+    background-blend-mode:soft-light;
+    background-clip:border-box;
+    background-origin:border-box;
+    background-position:center;
+    background-repeat:no-repeat;
+    color: white;
+}
+
+.blur {
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width:100%;
+    text-align: center;
+}
+#search{
+  width:25rem;
+  height:4rem;
+  padding:2px;
+  margin:0px;
+  border:3px solid #348E38;
+  font:1.5rem san-serif;
+  border-radius:0.5rem;
+}
+
+    #search:focus {
+        outline: none;
+        transform: scale(1.05);
+        border: 3px solid #ff6666;
+    }
+    #search:hover {
+        outline: none;
+        transform: scale(1.05);
+        border: 3px solid #ff6666;
+    }
+
+.label-ara{
+    border-radius:0.5rem;
+}
+    .label-ara:hover {
+        color: #ff6666;
+    }
+
+#bg-login-img{
+    background-attachment:fixed;
+    background-repeat:no-repeat;
+    background-position:center;
+   
+ 
+}
+#ftco-section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    margin-left: 12.5rem;
+    margin-right: 12.5rem;
+    border: 1px solid #348E38;
+    background-color: rgb(52,142,56,0.2);
+}
+

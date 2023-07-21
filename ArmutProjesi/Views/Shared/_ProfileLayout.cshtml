@@ -1,0 +1,68 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
+    <link href="/css/Profile.css" rel="stylesheet" />
+
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="dashboard.css" rel="stylesheet">
+</head>
+<body>
+
+    <header class="navbar sticky-top navbar-expand-lg bg-light shadow">
+        <a href="/Home/Index" class="btn d-flex align-items-center px-4 px-lg-5">
+            <h1 class="m-0">Ayva</h1>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class=" collapse navbar-collapse d-md-flex justify-content-md-end" id="navbarCollapse">
+            <ul class="navbar-nav">
+                <li class="btn btn-outline-success nav-item lh-lg fs-6 text-black">
+                    <a class="nav-link fs-4 px-3 text-dark" href="/account/Jobs"><i class="bi bi-ui-checks"></i> İşlerim</a>
+                </li>
+                <li class="btn btn-outline-success nav-item lh-lg fs-6">
+                    <a class="nav-link fs-4 px-3 text-dark" href="/account/Services"><i class="bi bi-ui-radios-grid"></i> Servislerim</a>
+                </li>
+                <li class="btn btn-outline-success nav-item lh-lg fs-6">
+                    <a class="nav-link fs-4 px-3 text-dark" href="/account/Profile"><i class="bi bi-person-vcard"></i> Hesap</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="container-fluid pt-10 mt-xl-1 ">
+        <div class="row">
+          
+            @RenderBody()
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/js/Profile.js"></script>
+
+</body>
+</html>
