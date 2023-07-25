@@ -81,7 +81,8 @@ namespace ArmutProjesi.Controllers
                     Cinsiyet = model.Cinsiyet,
                     KullaniciAdi = model.KullaniciAdi,
                     KayitTarihi = DateTime.Now,
-                    Aktif = false,
+                    TelefonNumarası = model.Telefon,
+                    Aktif = true,
                 };
                _kullaniciManager.kullaniciAdd(newuser);
                 return RedirectToAction("Profile", "Account");
