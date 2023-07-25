@@ -1,4 +1,6 @@
-﻿@{
+﻿@using ArmutProjesi.Models
+@model SoruCevap
+@{
     ViewBag.Title = "Teklif";
     Layout = "~/Views/Shared/_ModelLayout.cshtml";
 }
@@ -56,28 +58,34 @@
                                         <div _ngcontent-log-c63="" dynamicfield=""></div>
                                         <custom-radio id="dynamic-form-component-element">
                                             <div style="text-align:center">
-                                                <label id="radio-list-question" class="question">Hangisine ihtiyacın var?</label>
+
+                                                <label id="radio-list-question" class="question">@Model.Soru.Sorular</label>
+                                               @* <hidden id="soruid">@Model.Soru.SoruId</hidden>*@
                                             </div>
                                             <hr />
                                             <br />
                                             <div class="ng-untouched ng-pristine ng-invalid">
-                                                <div class="box">
-                                                    <div class="markable-elements ">
-                                                        
-                                                        <h5 class="metin" style="float:left;">
-                                                            Evden eve nakliyat hizmeti
-                                                       </h5>                                                    
-                                                       <label class="label" style="float:right;">
-                                                            <input class="label__checkbox" type="checkbox" />
-                                                            <span class="label__text">
-                                                                <span class="label__check">
-                                                                    <i class="fa fa-check icon"></i>
+
+                                                @foreach (var item in Model.Cevaplar)
+                                                {
+                                                    <div class="box">
+                                                        <div class="markable-elements">
+                                                            <h5 class="metin" style="float:left;">
+                                                                @item.Cevaplar
+                                                            </h5>
+                                                            <label class="label" style="float:right;">
+                                                                <input class="label__checkbox" type="checkbox" />
+                                                                <span class="label__text">
+                                                                    <span class="label__check">
+                                                                        <i class="fa fa-check icon"></i>
+                                                                    </span>
                                                                 </span>
-                                                            </span>
-                                                        </label>
+                                                            </label>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                              
+                                                }
+                                        
+                                              @*
                                                 
 
                                                 <div class="box">
@@ -112,60 +120,13 @@
                                                             </span>
                                                         </label>
                                                     </div>
-                                                </div>
+                                                </div>*@
                                                 
                                                 
-                                                <div class="box">
-                                                    <div class="markable-elements ">
-
-                                                        <h5 class="metin" style="float:left;">
-                                                            Evden eve nakliyat hizmeti
-                                                        </h5>
-                                                        <label class="label" style="float:right;">
-                                                            <input class="label__checkbox" type="checkbox" />
-                                                            <span class="label__text">
-                                                                <span class="label__check">
-                                                                    <i class="fa fa-check icon"></i>
-                                                                </span>
-                                                            </span>
-                                                        </label>
-                                                    </div>
-                                                </div>
+                                             
+                                       
                                                   
-                                                <div class="box">
-                                                    <div class="markable-elements ">
-
-                                                        <h5 class="metin" style="float:left;">
-                                                            Evden eve nakliyat hizmeti
-                                                        </h5>
-                                                        <label class="label" style="float:right;">
-                                                            <input class="label__checkbox" type="checkbox" />
-                                                            <span class="label__text">
-                                                                <span class="label__check">
-                                                                    <i class="fa fa-check icon"></i>
-                                                                </span>
-                                                            </span>
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                
-                                                  
-                                                <div class="box">
-                                                    <div class="markable-elements ">
-
-                                                        <h5 class="metin" style="float:left;">
-                                                            Evden eve nakliyat hizmeti
-                                                        </h5>
-                                                        <label class="label" style="float:right;">
-                                                            <input class="label__checkbox" type="checkbox" />
-                                                            <span class="label__text">
-                                                                <span class="label__check">
-                                                                    <i class="fa fa-check icon"></i>
-                                                                </span>
-                                                            </span>
-                                                        </label>
-                                                    </div>
-                                                </div>
+                                               
 
                                             <!---->
                                         </custom-radio>
@@ -192,7 +153,7 @@
         </div>
         <div  class="ayva-modal__footer">
  
-            <button type="submit" id="next-button" class="button button__primary button--big button--padding-big footer__button--next">
+            <button type="submit" id="next-button" class="button button__primary button--big button--padding-big footer__button--next" data-soruid="@Model.Soru.SoruId">
                 Devam
    
             </button>
@@ -203,7 +164,13 @@
 
    <script>
         $("#next-button").click(function () {
-            $(location).attr('href', 'http://www.gencayyildiz.com')
+        //var id = $("#soruid").val();
+        var btn = $(this);
+        var id = btn.data("soruid");
+     
+            id+=1;
+        console.log(id);
+            $(location).attr('href', '/Teklif/teklif/'+id)
         });
     </script>
 

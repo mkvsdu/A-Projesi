@@ -12,6 +12,7 @@ namespace ArmutProjesi.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly KategoriManager _kategoriManager;
+        private readonly AltKategoriManager _altKategoriManager;
         private readonly DatabaseContext _databaseContext;
 
         public HomeController(ILogger<HomeController> logger, DatabaseContext databaseContext, IConfiguration configuration)
@@ -19,11 +20,12 @@ namespace ArmutProjesi.Controllers
             _logger = logger;
             this._databaseContext = databaseContext;
             this._kategoriManager = new KategoriManager(new EFKategoriRepository(this._databaseContext));
+            this._altKategoriManager = new AltKategoriManager(new EFAltKategoriRepository(this._databaseContext));
         }
 
         public IActionResult Index()
         {
-           return View(_kategoriManager.KategoriList().Take(6).ToList());
+           return View(_altKategoriManager.KategoriList().Where(x=>x.KategoriId==1).ToList());
         }
 
         public IActionResult Hakkimizda()
