@@ -1,5 +1,5 @@
 ﻿@using EntityLayer
-@model List<Kategori>
+@model List<AltKategori>
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -118,6 +118,7 @@
                 
                 string dosyaadi = item.Id.ToString() + ".jpg";
                 string ozellik = "first";
+                int id = item.Id;
 
                 @if (item.Id % 2 == 0)
                 {
@@ -138,9 +139,9 @@
                         </div>
                     </div>
                     <p class="pull-right">
-                        <a href="/Home/@item.KategoriAdi" class="btn btn-default btn-xs right" data-toggle="modal" data-target="#modal2"><span class="glyphicon glyphicon-chevron-right"></span>@item.KategoriAdi</a>
+                        <a href="/Home/@item.AltKategoriAdi" class="btn btn-default btn-xs right" data-toggle="modal" data-target="#modal2"><span class="glyphicon glyphicon-chevron-right"></span>@item.AltKategoriAdi</a>
                     </p>
-                    <button type="button" class="pro-mask__button button--green" onclick="location.href=' /Home/HizmetVer'">TEKLİF AL</button>
+                    <button type="button" class="pro-mask__button button--green" onclick="location.href='/Teklif/teklif/@id'">TEKLİF AL</button>
                 </div>
        
                
