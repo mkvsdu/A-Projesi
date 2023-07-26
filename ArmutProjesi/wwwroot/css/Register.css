@@ -90,6 +90,9 @@ input {
     font-weight: 300;
     color: black;
 }
+    input.radio-class {
+        height: 30px;
+    }
 
 ::placeholder {
     color: lightslategray;

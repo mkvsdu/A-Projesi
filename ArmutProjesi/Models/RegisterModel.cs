@@ -13,7 +13,8 @@ namespace ArmutProjesi.Models
 
         [StringLength(30)]
         public string? Soyad { get; set; }
-
+        [StringLength(25)]
+        public string Telefon { get; set; }
         [StringLength(100), Required]
         public string Email { get; set; }
 
