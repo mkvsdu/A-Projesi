@@ -23,35 +23,41 @@
                 </div>
             </div>
             <div class="form-outline  m-4">
-                <label class="form-label" for="form3Example1">İsim</label>
+                @*<label class="form-label" for="form3Example1">İsim</label>*@
                 <input type="text" asp-for="Ad" id="isim" placeholder="İsim" />
             </div>
             <div class="form-outline m-4">
-                <label class="form-label " for="form3Example2">Soyisim</label>
+                @*<label class="form-label " for="form3Example2">Soyisim</label>*@
                 <input type="text" asp-for="Soyad" id="soyisim" placeholder="Soyisim" />
+            </div>
+            <div class="form-outline m-4">
+                @*<label class="form-label " for="form3Example2">Soyisim</label>*@
+                <input type="text" asp-for="Telefon" id="telefon" placeholder="Telefon Numaranız" />
             </div>
             <!-- Email input -->
             <div class="form-outline m-4">
-                <label class="form-label" for="form3Example3">Email Adres</label>
+                @*<label class="form-label" for="form3Example3">Email Adres</label>*@
                 <input type="email" asp-for="Email" id="email" placeholder="ornekmail@ornek.com" />
             </div>
             <!-- Password input -->
             <div class="form-outline m-4">
-                <label class="form-label" for="form3Example4">Şifre</label>
+                @*<label class="form-label" for="form3Example4">Şifre</label>*@
                 <input type="password" asp-for="Sifre" id="sifre" placeholder="Şifre" style="padding-right:2px;" />
             </div>
             <!-- Password input -->
             <div class="form-outline m-4">
-                <label class="form-label" for="form3Example4">Şifre Tekrarı</label>
+                @*<label class="form-label" for="form3Example4">Şifre Tekrarı</label>*@
                 <input type="password" asp-for="Sifre2" id="sifre" placeholder="Şifreni Tekrar Gir" style="padding-right:2px;" />
             </div>
             <div class="form-outline  m-4">
-                <label class="form-label" for="form3Example1">Kullanıcı Adınız</label>
+                @*<label class="form-label" for="form3Example1">Kullanıcı Adınız</label>*@
                 <input type="text" asp-for="KullaniciAdi" id="isim" placeholder="Giriş Yaparken kullanacağın Ad" />
             </div>
             <div class="form-outline container row">
-                <div class="col-6"><span>Erkek</span><input type="radio" asp-for="Cinsiyet" name="cinsiyet" value="erkek" /></div>
-                <div class="col-6"><span>Kadın</span><input type="radio" asp-for="Cinsiyet" name="cinsiyet" value="kadin" /></div>
+                <div class="col-3 text-center"></div>
+
+                <div class="col-3 text-center"><span>Erkek</span><input class="radio-class" type="radio" asp-for="Cinsiyet" name="cinsiyet" value="erkek" /></div>
+                <div class="col-3 text-center"><span>Kadın</span><input class="radio-class" type="radio" asp-for="Cinsiyet" name="cinsiyet" value="kadin" /></div>
             </div>
         </div>
         <!-- Submit button -->
