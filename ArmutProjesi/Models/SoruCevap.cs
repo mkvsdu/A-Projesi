@@ -6,6 +6,8 @@ namespace ArmutProjesi.Models
     public class SoruCevap
     {
         public List<Cevap> Cevaplar { get; set; }
+
+        public AltKategori AltKategori { get; set; }
         public Soru Soru { get; set; }
         public SoruCevap()
         {
