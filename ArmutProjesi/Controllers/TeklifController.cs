@@ -39,10 +39,29 @@ namespace ArmutProjesi.Controllers
             }
             sorucevap.AltKategori = _altkategoriManager.KategoriList().FirstOrDefault(x => x.Id == sorucevap.Soru.AltKategoriId);
             sorucevap.Cevaplar.AddRange(_cevaplarManager.CevapList().Where(x => x.SoruId == sorucevap.Soru.SoruId).ToList());
-
+    
             //sorularvecevaplar.Add(soru);
             //sorularvecevaplar.AddRange(_cevaplarManager.CevapList().Where(x => x.SoruId == soruid).Select(x=>x.Cevaplar).ToList());
+            //return View(sorucevap);
             return View(sorucevap);
+        }
+
+        [HttpPost]
+        public JsonResult SoruCevapGetir(int id, int soruid)
+        {
+            SoruCevap sorucevap = new SoruCevap();
+            if (soruid == 0)
+            {
+                sorucevap.Soru = _sorularmanager.SoruList().FirstOrDefault(x => x.AltKategoriId == id);
+            }
+            else
+            {
+                sorucevap.Soru = _sorularmanager.SoruList().FirstOrDefault(x => x.SoruId == soruid);
+            }
+            sorucevap.AltKategori = _altkategoriManager.KategoriList().FirstOrDefault(x => x.Id == sorucevap.Soru.AltKategoriId);
+            sorucevap.Cevaplar.AddRange(_cevaplarManager.CevapList().Where(x => x.SoruId == sorucevap.Soru.SoruId).ToList());
+
+            return Json(new { result = sorucevap });
         }
     }
 }

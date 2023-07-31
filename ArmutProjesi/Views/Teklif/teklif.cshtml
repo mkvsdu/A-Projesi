@@ -1,8 +1,10 @@
 ﻿@using ArmutProjesi.Models
+@using EntityLayer;
 @model SoruCevap
 @{
     ViewBag.Title = "Teklif";
     Layout = "~/Views/Shared/_ModelLayout.cshtml";
+    List<Cevap> cevaplar=Model.Cevaplar;
 }
 
 
@@ -17,7 +19,7 @@
                             <custom-progressbar >
                                 <div class="progressbar">
 
-                                    <h1 class="title">@Model.AltKategori.AltKategoriAdi</h1>
+                                    <h1 class="title" id="AltKategoriAdi">@Model.AltKategori.AltKategoriAdi</h1>
                                     <!---->
                                     <ngb-progressbar type="success">
                                         <div class="progress">
@@ -66,7 +68,7 @@
                                             <br />
                                             <div class="ng-untouched ng-pristine ng-invalid">
 
-                                                @foreach (var item in Model.Cevaplar)
+                                                @foreach (var item in cevaplar)
                                                 {
                                                     <div class="box">
                                                         <div class="markable-elements">
@@ -126,7 +128,7 @@
                                              
                                        
                                                   
-                                               
+                                               </div>
 
                                             <!---->
                                         </custom-radio>
@@ -161,30 +163,40 @@
     </div>
 </ngb-modal-window>
 
+@section Scripts{
 
    <script>
-        $("#next-button").click(function () {
-        //var id = $("#soruid").val();
-     
-        var btn = $(this);
-
         
-        var id = btn.data("katid");
-        var soruid = btn.data("soruid");
+        $("#next-button").click(function () {
+            var btn = $(this);
+            var id = btn.data("katid");
+            var soruid = btn.data("soruid");
+        console.log(id);
+            //$(location).attr('href', 'https://www.google.com.tr/');
+          
+        
         soruid += 1;
-        $.ajax({
-            type: 'post',
-            data: {
-                id: id,
-                soruid: soruid
-        }
-        });
+        //$.ajax({
+        //    type: 'post',
+        //    url: '/Teklif/SoruCevapGetir',
+        //    data: {
+        //        id: id,
+        //        soruid: soruid
+        //},
+        //    success: function (response) {
+        //        $("#AltKategoriAdi").text = response.AltKategori.AltKategoriAdi;
+        //        $("#radio-list-question").text = response.Soru.Sorular;
+        //        //@cevaplar=response.Cevaplar;
+                  
+        //        }
+        //});
             
-            //$(location).attr('href', '/Teklif/teklif/'+id=id+'?'+soruid=soruid)
+            $(location).attr('href', '/Teklif/teklif/' + id + '?soruid=' + soruid)
 
         });
+       
     </script>
 
-
+}
 
 
