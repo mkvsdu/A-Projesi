@@ -6,6 +6,10 @@ using Microsoft.Extensions.DependencyInjection;
 using ArmutProjesi.Data;
 using Microsoft.AspNetCore.Authentication.Negotiate;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using BusinessLayer.Abstract;
+using BusinessLayer.Concrete;
+using DataAccessLayer.Abstract;
+using EntityLayer;
 
 namespace ArmutProjesi
 {
@@ -17,7 +21,9 @@ namespace ArmutProjesi
             
             // Add services to the container.
             builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
-          
+            //builder.Services.AddScoped<IKategoriService, KategoriManager>();
+            //builder.Services.AddScoped<IGenericDal<Kategori>,IKategoriDal>();
+
             builder.Services.AddDbContext<DatabaseContext>(opt =>
             {
                 opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
@@ -42,6 +48,7 @@ namespace ArmutProjesi
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
 
             app.UseRouting();
 

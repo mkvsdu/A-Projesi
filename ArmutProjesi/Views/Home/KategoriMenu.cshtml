@@ -1,0 +1,8 @@
+﻿@using EntityLayer
+@model List<Kategori>
+@foreach (var item in Model)
+{
+    <a asp-controller="Home" asp-action=@item.KategoriAdi class="dropdown-item nav-link btn-chose">@item.KategoriAdi</a>
+
+}
+<a asp-controller="Home" asp-action="Diger" class="dropdown-item nav-link btn-chose">Diğer</a>

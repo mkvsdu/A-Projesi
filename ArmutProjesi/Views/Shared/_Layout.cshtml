@@ -30,7 +30,6 @@
 
     <link href="~/css/site.css" rel="stylesheet" />
     <link href="~/css/style.css" rel="stylesheet" />
-
 </head>
 <body>
     <header>
@@ -54,6 +53,9 @@
                     <div class="nav-item dropdown">
                       <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Hizmetler</a>
                         <div class="dropdown-menu bg-light m-0 text-center">
+                   
+              @*              @await Component.InvokeAsync("KategoriList")*@
+                        
                             <a asp-controller="Home" asp-action="Temizlik" class="dropdown-item nav-link btn-chose">Temizlik</a>
                             <a asp-controller="Home" asp-action="Tadilat" class="dropdown-item nav-link btn-chose">Tadilat</a>
                             <a asp-controller="Home" asp-action="Ozelders" class="dropdown-item nav-link btn-chose">Özel Ders</a>
@@ -156,3 +158,18 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+@*<script>
+
+    $(function () {
+    $.ajax({
+        type: "POST",
+        url: "/Home/KategoriListesi",
+        success: function(response){
+            $(response).each(function(){
+
+            });
+        }
+    });
+    }
+</script>*@
+

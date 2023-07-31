@@ -3,6 +3,7 @@ using BusinessLayer.Concrete;
 using DataAccessLayer;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.EntityFramework;
+using EntityLayer;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -26,6 +27,18 @@ namespace ArmutProjesi.Controllers
         public IActionResult Index()
         {
            return View(_altKategoriManager.KategoriList().Where(x=>x.KategoriId==1).ToList());
+        }
+
+        public IActionResult KategoriMenu()
+        {
+            return View(_kategoriManager.KategoriList().ToList());
+        }
+
+       
+
+        public List<Kategori> KategoriListesi()
+        {
+            return _kategoriManager.KategoriList().ToList();
         }
 
         public IActionResult Hakkimizda()

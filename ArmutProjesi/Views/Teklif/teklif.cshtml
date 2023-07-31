@@ -1,8 +1,10 @@
 ﻿@using ArmutProjesi.Models
+@using EntityLayer;
 @model SoruCevap
 @{
     ViewBag.Title = "Teklif";
     Layout = "~/Views/Shared/_ModelLayout.cshtml";
+    List<Cevap> cevaplar=Model.Cevaplar;
 }
 
 
@@ -17,7 +19,7 @@
                             <custom-progressbar >
                                 <div class="progressbar">
 
-                                    <h1 class="title">Şehirler Arası Nakliye</h1>
+                                    <h1 class="title" id="AltKategoriAdi">@Model.AltKategori.AltKategoriAdi</h1>
                                     <!---->
                                     <ngb-progressbar type="success">
                                         <div class="progress">
@@ -60,13 +62,13 @@
                                             <div style="text-align:center">
 
                                                 <label id="radio-list-question" class="question">@Model.Soru.Sorular</label>
-                                               @* <hidden id="soruid">@Model.Soru.SoruId</hidden>*@
+ 
                                             </div>
                                             <hr />
                                             <br />
                                             <div class="ng-untouched ng-pristine ng-invalid">
 
-                                                @foreach (var item in Model.Cevaplar)
+                                                @foreach (var item in cevaplar)
                                                 {
                                                     <div class="box">
                                                         <div class="markable-elements">
@@ -126,7 +128,7 @@
                                              
                                        
                                                   
-                                               
+                                               </div>
 
                                             <!---->
                                         </custom-radio>
@@ -153,7 +155,7 @@
         </div>
         <div  class="ayva-modal__footer">
  
-            <button type="submit" id="next-button" class="button button__primary button--big button--padding-big footer__button--next" data-soruid="@Model.Soru.SoruId">
+            <button type="submit" id="next-button" class="button button__primary button--big button--padding-big footer__button--next" data-katid="@Model.AltKategori.Id" data-soruid="@Model.Soru.SoruId">
                 Devam
    
             </button>
@@ -161,19 +163,40 @@
     </div>
 </ngb-modal-window>
 
+@section Scripts{
 
    <script>
+        
         $("#next-button").click(function () {
-        //var id = $("#soruid").val();
-        var btn = $(this);
-        var id = btn.data("soruid");
-     
-            id+=1;
+            var btn = $(this);
+            var id = btn.data("katid");
+            var soruid = btn.data("soruid");
         console.log(id);
-            $(location).attr('href', '/Teklif/teklif/'+id)
+            //$(location).attr('href', 'https://www.google.com.tr/');
+          
+        
+        soruid += 1;
+        //$.ajax({
+        //    type: 'post',
+        //    url: '/Teklif/SoruCevapGetir',
+        //    data: {
+        //        id: id,
+        //        soruid: soruid
+        //},
+        //    success: function (response) {
+        //        $("#AltKategoriAdi").text = response.AltKategori.AltKategoriAdi;
+        //        $("#radio-list-question").text = response.Soru.Sorular;
+        //        //@cevaplar=response.Cevaplar;
+                  
+        //        }
+        //});
+            
+            $(location).attr('href', '/Teklif/teklif/' + id + '?soruid=' + soruid)
+
         });
+       
     </script>
 
-
+}
 
 
