@@ -93,10 +93,39 @@ namespace ArmutProjesi.Controllers
         {
             return View();
         }
-
+        [HttpGet]
         public IActionResult Profile() // Profil sayfası
         {
+            var kullaniciId = new Guid("7a54e46a-3e2e-49d5-9c41-08db8cf6547f");// Burada kullanıcı bilgisi session'dan ya da Cockie'den alınacak.
+            Kullanici kullanici = _kullaniciManager.GetById(kullaniciId);
+            if (kullanici != null)
+            {
+                ProfileModel model = new ProfileModel() { 
+                Id = kullanici.Id,
+                Ad = kullanici.Ad,
+                Soyad= kullanici.Soyad,
+                Email = kullanici.Email,
+                Adres = kullanici.Adres,
+                Adres2 = kullanici.Adres2,
+                Aktif = kullanici.Aktif,
+                Cinsiyet = kullanici.Cinsiyet,
+                KullaniciAdi = kullanici.KullaniciAdi,
+                TelefonNumarası = kullanici.TelefonNumarası,
+                Sifre = kullanici.Sifre
+            };
+                return View(model);
+        }
             return View();
+        }
+        [HttpPost]
+        public IActionResult Profile(ProfileModel model) // Profil sayfası
+        {
+
+            if (ModelState.IsValid)
+            {
+
+            }
+            return View(model);
         }
         public IActionResult ProfileSetting() // Profil ayarları
         {

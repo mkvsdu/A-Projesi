@@ -41,7 +41,7 @@ namespace BusinessLayer.Concrete
 
 		public Kullanici GetById(int id)
 		{
-			throw new NotImplementedException();
+            return _kullaniciDal.GetById(id);
 		}
 
         public Kullanici KullaniciBul(string kullaniciAdi, string sifre)

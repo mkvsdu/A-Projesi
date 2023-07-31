@@ -1,4 +1,5 @@
-﻿@{
+﻿@model ProfileModel
+@{
     ViewData["Title"] = "Profile";
     Layout = "~/Views/Shared/_ProfileLayout.cshtml";
 }
@@ -87,58 +88,51 @@
                     <div class="offset-sm-3 col-md-7">
 
                         <form class="needs-validation" method="post" novalidate>
+                            <div asp-validation-summary="ModelOnly" class="text-danger small">
+                            </div>
                             <div class="row g-3">
-                                <div class="col-sm-12">
-                                    <label for="firstName" class="form-label">Adınız</label>
-                                    <input type="text" class="form-control" id="firstName" placeholder="Adınız" value="" required>
-                                    <div class="invalid-feedback">
-                                        Ad alanı boş bırakılamaz.
-                                    </div>
-                                </div>
+                                <input type="hidden" name="Id" value="@Model.Id" />
 
                                 <div class="col-sm-12">
-                                    <label for="lastName" class="form-label">Soyadınız</label>
-                                    <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-                                    <div class="invalid-feedback">
-                                        Soyadı alanı boş bırakılamaz.
-                                    </div>
+                                    <label for="isim" class="form-label">Adınız</label>
+                                    <input type="text" asp-for="Ad" id="isim" placeholder="Adınız" />
                                 </div>
+                                <div class="col-sm-12">
+                                    <label for="soyad" class="form-label">Soyadınız</label>
+                                    <input type="text" asp-for="Soyad" id="soyad" placeholder="Soyadınız" />
+                                </div>
+                                <div class="col-sm-12">
+                                    <label for="kullaniciAdi" class="form-label">Kullanıcı Adınız</label>
+                                    <input type="text" asp-for="KullaniciAdi" id="kullaniciAdi" placeholder="Kullanıcı Adınız" />
+                                </div>
+                                <div class="col-sm-12">
+                                    <label for="Email" class="form-label">E-postanız</label>
+                                    <input type="email" asp-for="Email" id="email" placeholder="you@example.com" />
+                                </div>
+                                <div class="col-sm-12">
+                                    <label for="sifre" class="form-label">Yeni Şifreniz</label>
+                                    <input type="password" asp-for="Sifre" id="sifre" placeholder="Yeni Şifreniz" />
+                                </div>
+                                <div class="col-sm-12">
+                                    <label for="sifre-tekrar" class="form-label">Yeni Şifre Tekrarı</label>
+                                    <input type="password" asp-for="SifreTekrar" id="sifre-tekrar" placeholder="Yeni Şifre Tekrarı" />
+                                </div>
+                                <div class="col-sm-12">
+                                    <label for="telefon" class="form-label">Telefonunuz</label>
+                                    <input type="tel" asp-for="TelefonNumarası" id="telefon" placeholder="Telefonunuz" />
+                                </div>
+                                <div class="col-sm-12">
+                                    <label for="adres" class="form-label">Adresiniz</label>
+                                    <input type="text" asp-for="Adres" id="adres" placeholder="Adresiniz" />
+                                </div>
+                                <div class="col-sm-12">
+                                    <label for="adres2" class="form-label">Adres2</label>
+                                    <input type="text" asp-for="Adres2" id="adres2" placeholder="Adres2" />
+                                </div>
+                                <div class="col-sm-12">
 
-                                <div class="col-12">
-                                    <label for="email" class="form-label">Email</label>
-                                    <input type="email" class="form-control" id="email" placeholder="you@example.com">
-                                    <div class="invalid-feedback">
-                                        Lütfen Mail adrsinizi doğru giriniz.
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <label for="password" class="form-label">Eski Şifreniz</label>
-                                    <input type="password" class="form-control" id="password" placeholder="***">
-                                    <div class="invalid-feedback">
-                                        Lütfen Eski Şifrenizi doğru giriniz.
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <label for="password" class="form-label">Yeni Şifre</label>
-                                    <input type="password" class="form-control" id="password" placeholder="">
-                                    <div class="invalid-feedback">
-                                        Lütfen yeni Şifrenizi doğru giriniz.
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <label for="password" class="form-label">Yeni Şifre Tekrarı</label>
-                                    <input type="password" class="form-control" id="password" placeholder="">
-                                    <div class="invalid-feedback">
-                                        Lütfen yeni Şifrenizi doğru giriniz.
-                                    </div>
-                                </div>
-
-                                <div class="col-12">
-                                    <label for="address" class="form-label">Adresiniz</label>
-                                    <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
-                                    <div class="invalid-feedback">
-                                        Lütfen adres alanını doldurunuz.
-                                    </div>
+                                <div class="col-3 text-center"><span>Erkek</span><input class="radio-class" type="radio" asp-for="Cinsiyet" name="cinsiyet" value="erkek" /></div>
+                                <div class="col-3 text-center"><span>Kadın</span><input class="radio-class" type="radio" asp-for="Cinsiyet" name="cinsiyet" value="kadin" /></div>
                                 </div>
 
                                 <div class="col-12">
